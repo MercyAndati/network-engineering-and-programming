@@ -1,42 +1,44 @@
+#Create a python class called BankAccount with attributes like account_number, balance, date_of_opening and customer_name, and methods like deposit, withdraw, check_balance and customer_details  
+#i. The deposit method should return the amount deposited  
+#ii. The withdraw method return insufficient balance if account balance is less than amount to be withdrawn else it should return the amount that has been withdrawn.  
+#iii. The check_balance method should print the current balance.  
+#iv. The customer_details method should print customer name, account number, date of account opening and balance.
+
 class BankAccount:
     def __init__(self, account_number, customer_name, date_of_opening):
         self.account_number = account_number
-        self.balance = 0.0  # Initial balance is set to 0
+        self.balance = 0.0  
         self.date_of_opening = date_of_opening
         self.customer_name = customer_name
 
-    def deposit(self, amount_deposit):
-        """Deposit a specified amount into the account."""
+    def deposit(self, amount_deposit): 
         if amount_deposit > 0:
             self.balance += amount_deposit
-            return amount_deposit  # Return the amount deposited
+            return amount_deposit  
         else:
-            raise ValueError("Deposit amount must be positive.")
+            raise ValueError("Invalid deposit amount. Please enter a positive value.")
 
     def withdraw(self, amount_withdraw):
-        """Withdraw a specified amount from the account."""
         if amount_withdraw <= 0:
-            raise ValueError("Withdrawal amount must be positive.")
+            raise ValueError("Invalid withdrawal amount. Please enter a positive value.")
         
         if self.balance >= amount_withdraw:
             self.balance -= amount_withdraw
-            return amount_withdraw  # Return the amount withdrawn
+            return amount_withdraw 
         else:
             return "Insufficient balance."
 
     def check_balance(self):
-        """Print the current balance."""
         print(f"Current balance: {self.balance:.2f}")
 
     def customer_details(self):
-        """Print the customer's details."""
         print(f"Customer Name: {self.customer_name}")
         print(f"Account Number: {self.account_number}")
         print(f"Date of Opening: {self.date_of_opening}")
         print(f"Balance: {self.balance:.2f}")
 
-# Example usage:
-account = BankAccount("123456789", "Mercy", "2025-01-20")
+# Example 
+account = BankAccount("938476217", "Mercy", "2025-01-20")
 
 # Deposit money into the account
 deposited_amount = account.deposit(5000)
